@@ -26,6 +26,18 @@ template:
                       environmentInputs: <+input>
                       serviceOverrideInputs: <+input>
                       infrastructureDefinitions: <+input>
+                    execution:
+                      steps:
+                        - step:
+                            identifier: stepn
+                            template:
+                              templateInputs:
+                                type: ShellScript
+                                spec:
+                                  source:
+                                    type: Inline
+                                    spec:
+                                      script: <+input>
           - stage:
               name: s2
               identifier: s2
@@ -43,3 +55,15 @@ template:
                       environmentInputs: <+input>
                       serviceOverrideInputs: <+input>
                       infrastructureDefinitions: <+input>
+                    execution:
+                      steps:
+                        - step:
+                            identifier: ssh
+                            template:
+                              templateInputs:
+                                type: ShellScript
+                                spec:
+                                  source:
+                                    type: Inline
+                                    spec:
+                                      script: <+input>
