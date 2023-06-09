@@ -1,0 +1,45 @@
+template:
+  name: pip2
+  identifier: pip2
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: KanikaTest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - parallel:
+          - stage:
+              name: s1
+              identifier: s1
+              template:
+                templateRef: stage1
+                versionLabel: v1
+                templateInputs:
+                  type: Deployment
+                  spec:
+                    service:
+                      serviceRef: <+input>
+                      serviceInputs: <+input>
+                    environment:
+                      environmentRef: <+input>
+                      environmentInputs: <+input>
+                      serviceOverrideInputs: <+input>
+                      infrastructureDefinitions: <+input>
+          - stage:
+              name: s2
+              identifier: s2
+              template:
+                templateRef: stage2
+                versionLabel: v2
+                templateInputs:
+                  type: Deployment
+                  spec:
+                    service:
+                      serviceRef: <+input>
+                      serviceInputs: <+input>
+                    environment:
+                      environmentRef: <+input>
+                      environmentInputs: <+input>
+                      serviceOverrideInputs: <+input>
+                      infrastructureDefinitions: <+input>
