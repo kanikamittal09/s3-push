@@ -27,6 +27,13 @@ template:
               template:
                 templateRef: step5
                 versionLabel: v1
+                templateInputs:
+                  type: ShellScript
+                  spec:
+                    source:
+                      type: Inline
+                      spec:
+                        script: <+input>
         rollbackSteps: []
     failureStrategies:
       - onFailure:
